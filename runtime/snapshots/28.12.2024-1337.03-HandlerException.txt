@@ -1,0 +1,167 @@
+[Cycle\Database\Exception\HandlerException]
+SQLSTATE[HY000]: General error: 3730 Cannot drop table 'users' referenced by a foreign key constraint 'carts_foreign_user_id_676a47d38b69a' on table 'carts'. in vendor/cycle/database/src/Driver/Handler.php:222
+
+ 1. Cycle\Database\Driver\Handler->run() at vendor/cycle/database/src/Driver/Handler.php:222
+ 2. Cycle\Database\Driver\Handler->run() at vendor/cycle/database/src/Driver/Handler.php:57
+ 3. Cycle\Database\Driver\Handler->dropTable() at vendor/cycle/database/src/Schema/AbstractTable.php:567
+ 4. Cycle\Database\Schema\AbstractTable->save() at vendor/cycle/migrations/src/Operation/Table/Drop.php:26
+ 5. Cycle\Migrations\Operation\Table\Drop->execute() at vendor/cycle/migrations/src/Capsule.php:59
+ 6. Cycle\Migrations\Capsule->execute() at vendor/cycle/migrations/src/TableBlueprint.php:241
+ 7. Cycle\Migrations\TableBlueprint->execute() at vendor/cycle/migrations/src/TableBlueprint.php:207
+ 8. Cycle\Migrations\TableBlueprint->drop() at app/migrations/20241028.175132_0_0_default_create_users.php:42
+ 9. Migration\OrmDefaultA42b7e366d78543ca8c5a4b60d305040->down() at vendor/cycle/migrations/src/Migrator.php:176
+10. Cycle\Migrations\Migrator::Cycle\Migrations\{closure}() at vendor/cycle/database/src/Database.php:176
+11. Cycle\Database\Database->transaction() at vendor/cycle/migrations/src/Migrator.php:174
+12. Cycle\Migrations\Migrator->rollback() at vendor/spiral/cycle-bridge/src/Console/Command/Migrate/RollbackCommand.php:27
+13. Spiral\Cycle\Console\Command\Migrate\RollbackCommand->perform()
+14. ReflectionMethod->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:59
+15. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+16. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Console/src/CommandCore.php:36
+17. Spiral\Console\CommandCore->handle() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:116
+18. Spiral\Core\InterceptorPipeline->handle() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:76
+19. Spiral\Core\InterceptorPipeline->callAction() at vendor/spiral/framework/src/Console/src/Interceptor/AttributeInterceptor.php:27
+20. Spiral\Console\Interceptor\AttributeInterceptor->process() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:111
+21. Spiral\Core\InterceptorPipeline->handle() at vendor/spiral/framework/src/Console/src/Command.php:114
+22. Spiral\Console\Command->Spiral\Console\{closure}() at vendor/spiral/framework/src/Core/src/Container.php:405
+23. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+24. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+25. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+26. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Console/src/Command.php:100
+27. Spiral\Console\Command->execute() at vendor/symfony/console/Command/Command.php:279
+28. Symfony\Component\Console\Command\Command->run() at vendor/symfony/console/Application.php:1076
+29. Symfony\Component\Console\Application->doRunCommand() at vendor/symfony/console/Application.php:342
+30. Symfony\Component\Console\Application->doRun() at vendor/spiral/framework/src/Console/src/Console.php:87
+31. Spiral\Console\Console->Spiral\Console\{closure}()
+32. ReflectionFunction->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:77
+33. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+34. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Core/src/Container.php:404
+35. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+36. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+37. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+38. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Console/src/Console.php:80
+39. Spiral\Console\Console->run() at vendor/spiral/framework/src/Console/src/Console.php:51
+40. Spiral\Console\Console->start() at vendor/spiral/framework/src/Framework/Console/ConsoleDispatcher.php:55
+41. Spiral\Console\ConsoleDispatcher->serve() at vendor/spiral/framework/src/Boot/src/AbstractKernel.php:316
+42. Spiral\Boot\AbstractKernel::Spiral\Boot\{closure}()
+43. ReflectionFunction->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:77
+44. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+45. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Core/src/Container.php:404
+46. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+47. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+48. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+49. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Boot/src/AbstractKernel.php:312
+50. Spiral\Boot\AbstractKernel->serve() at app.php:31
+
+[Cycle\Database\Exception\StatementException]
+SQLSTATE[HY000]: General error: 3730 Cannot drop table 'users' referenced by a foreign key constraint 'carts_foreign_user_id_676a47d38b69a' on table 'carts'. in vendor/cycle/database/src/Driver/MySQL/MySQLDriver.php:89
+
+ 1. Cycle\Database\Driver\MySQL\MySQLDriver->mapException() at vendor/cycle/database/src/Driver/MySQL/MySQLDriver.php:89
+ 2. Cycle\Database\Driver\MySQL\MySQLDriver->mapException() at vendor/cycle/database/src/Driver/Driver.php:461
+ 3. Cycle\Database\Driver\Driver->statement() at vendor/cycle/database/src/Driver/Driver.php:227
+ 4. Cycle\Database\Driver\Driver->execute() at vendor/cycle/database/src/Driver/Handler.php:220
+ 5. Cycle\Database\Driver\Handler->run() at vendor/cycle/database/src/Driver/Handler.php:57
+ 6. Cycle\Database\Driver\Handler->dropTable() at vendor/cycle/database/src/Schema/AbstractTable.php:567
+ 7. Cycle\Database\Schema\AbstractTable->save() at vendor/cycle/migrations/src/Operation/Table/Drop.php:26
+ 8. Cycle\Migrations\Operation\Table\Drop->execute() at vendor/cycle/migrations/src/Capsule.php:59
+ 9. Cycle\Migrations\Capsule->execute() at vendor/cycle/migrations/src/TableBlueprint.php:241
+10. Cycle\Migrations\TableBlueprint->execute() at vendor/cycle/migrations/src/TableBlueprint.php:207
+11. Cycle\Migrations\TableBlueprint->drop() at app/migrations/20241028.175132_0_0_default_create_users.php:42
+12. Migration\OrmDefaultA42b7e366d78543ca8c5a4b60d305040->down() at vendor/cycle/migrations/src/Migrator.php:176
+13. Cycle\Migrations\Migrator::Cycle\Migrations\{closure}() at vendor/cycle/database/src/Database.php:176
+14. Cycle\Database\Database->transaction() at vendor/cycle/migrations/src/Migrator.php:174
+15. Cycle\Migrations\Migrator->rollback() at vendor/spiral/cycle-bridge/src/Console/Command/Migrate/RollbackCommand.php:27
+16. Spiral\Cycle\Console\Command\Migrate\RollbackCommand->perform()
+17. ReflectionMethod->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:59
+18. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+19. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Console/src/CommandCore.php:36
+20. Spiral\Console\CommandCore->handle() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:116
+21. Spiral\Core\InterceptorPipeline->handle() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:76
+22. Spiral\Core\InterceptorPipeline->callAction() at vendor/spiral/framework/src/Console/src/Interceptor/AttributeInterceptor.php:27
+23. Spiral\Console\Interceptor\AttributeInterceptor->process() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:111
+24. Spiral\Core\InterceptorPipeline->handle() at vendor/spiral/framework/src/Console/src/Command.php:114
+25. Spiral\Console\Command->Spiral\Console\{closure}() at vendor/spiral/framework/src/Core/src/Container.php:405
+26. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+27. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+28. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+29. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Console/src/Command.php:100
+30. Spiral\Console\Command->execute() at vendor/symfony/console/Command/Command.php:279
+31. Symfony\Component\Console\Command\Command->run() at vendor/symfony/console/Application.php:1076
+32. Symfony\Component\Console\Application->doRunCommand() at vendor/symfony/console/Application.php:342
+33. Symfony\Component\Console\Application->doRun() at vendor/spiral/framework/src/Console/src/Console.php:87
+34. Spiral\Console\Console->Spiral\Console\{closure}()
+35. ReflectionFunction->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:77
+36. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+37. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Core/src/Container.php:404
+38. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+39. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+40. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+41. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Console/src/Console.php:80
+42. Spiral\Console\Console->run() at vendor/spiral/framework/src/Console/src/Console.php:51
+43. Spiral\Console\Console->start() at vendor/spiral/framework/src/Framework/Console/ConsoleDispatcher.php:55
+44. Spiral\Console\ConsoleDispatcher->serve() at vendor/spiral/framework/src/Boot/src/AbstractKernel.php:316
+45. Spiral\Boot\AbstractKernel::Spiral\Boot\{closure}()
+46. ReflectionFunction->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:77
+47. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+48. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Core/src/Container.php:404
+49. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+50. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+51. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+52. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Boot/src/AbstractKernel.php:312
+53. Spiral\Boot\AbstractKernel->serve() at app.php:31
+
+[PDOException]
+SQLSTATE[HY000]: General error: 3730 Cannot drop table 'users' referenced by a foreign key constraint 'carts_foreign_user_id_676a47d38b69a' on table 'carts'. in vendor/cycle/database/src/Driver/Driver.php:457
+
+ 1. PDOStatement->execute() at vendor/cycle/database/src/Driver/Driver.php:457
+ 2. Cycle\Database\Driver\Driver->statement() at vendor/cycle/database/src/Driver/Driver.php:227
+ 3. Cycle\Database\Driver\Driver->execute() at vendor/cycle/database/src/Driver/Handler.php:220
+ 4. Cycle\Database\Driver\Handler->run() at vendor/cycle/database/src/Driver/Handler.php:57
+ 5. Cycle\Database\Driver\Handler->dropTable() at vendor/cycle/database/src/Schema/AbstractTable.php:567
+ 6. Cycle\Database\Schema\AbstractTable->save() at vendor/cycle/migrations/src/Operation/Table/Drop.php:26
+ 7. Cycle\Migrations\Operation\Table\Drop->execute() at vendor/cycle/migrations/src/Capsule.php:59
+ 8. Cycle\Migrations\Capsule->execute() at vendor/cycle/migrations/src/TableBlueprint.php:241
+ 9. Cycle\Migrations\TableBlueprint->execute() at vendor/cycle/migrations/src/TableBlueprint.php:207
+10. Cycle\Migrations\TableBlueprint->drop() at app/migrations/20241028.175132_0_0_default_create_users.php:42
+11. Migration\OrmDefaultA42b7e366d78543ca8c5a4b60d305040->down() at vendor/cycle/migrations/src/Migrator.php:176
+12. Cycle\Migrations\Migrator::Cycle\Migrations\{closure}() at vendor/cycle/database/src/Database.php:176
+13. Cycle\Database\Database->transaction() at vendor/cycle/migrations/src/Migrator.php:174
+14. Cycle\Migrations\Migrator->rollback() at vendor/spiral/cycle-bridge/src/Console/Command/Migrate/RollbackCommand.php:27
+15. Spiral\Cycle\Console\Command\Migrate\RollbackCommand->perform()
+16. ReflectionMethod->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:59
+17. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+18. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Console/src/CommandCore.php:36
+19. Spiral\Console\CommandCore->handle() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:116
+20. Spiral\Core\InterceptorPipeline->handle() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:76
+21. Spiral\Core\InterceptorPipeline->callAction() at vendor/spiral/framework/src/Console/src/Interceptor/AttributeInterceptor.php:27
+22. Spiral\Console\Interceptor\AttributeInterceptor->process() at vendor/spiral/framework/src/Hmvc/src/InterceptorPipeline.php:111
+23. Spiral\Core\InterceptorPipeline->handle() at vendor/spiral/framework/src/Console/src/Command.php:114
+24. Spiral\Console\Command->Spiral\Console\{closure}() at vendor/spiral/framework/src/Core/src/Container.php:405
+25. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+26. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+27. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+28. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Console/src/Command.php:100
+29. Spiral\Console\Command->execute() at vendor/symfony/console/Command/Command.php:279
+30. Symfony\Component\Console\Command\Command->run() at vendor/symfony/console/Application.php:1076
+31. Symfony\Component\Console\Application->doRunCommand() at vendor/symfony/console/Application.php:342
+32. Symfony\Component\Console\Application->doRun() at vendor/spiral/framework/src/Console/src/Console.php:87
+33. Spiral\Console\Console->Spiral\Console\{closure}()
+34. ReflectionFunction->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:77
+35. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+36. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Core/src/Container.php:404
+37. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+38. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+39. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+40. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Console/src/Console.php:80
+41. Spiral\Console\Console->run() at vendor/spiral/framework/src/Console/src/Console.php:51
+42. Spiral\Console\Console->start() at vendor/spiral/framework/src/Framework/Console/ConsoleDispatcher.php:55
+43. Spiral\Console\ConsoleDispatcher->serve() at vendor/spiral/framework/src/Boot/src/AbstractKernel.php:316
+44. Spiral\Boot\AbstractKernel::Spiral\Boot\{closure}()
+45. ReflectionFunction->invokeArgs() at vendor/spiral/framework/src/Core/src/Internal/Invoker.php:77
+46. Spiral\Core\Internal\Invoker->invoke() at vendor/spiral/framework/src/Core/src/Container.php:292
+47. Spiral\Core\Container->invoke() at vendor/spiral/framework/src/Core/src/Container.php:404
+48. Spiral\Core\Container::Spiral\Core\{closure}() at vendor/spiral/framework/src/Core/src/ContainerScope.php:46
+49. Spiral\Core\ContainerScope::runScope() at vendor/spiral/framework/src/Core/src/Container.php:399
+50. Spiral\Core\Container->runIsolatedScope() at vendor/spiral/framework/src/Core/src/Container.php:181
+51. Spiral\Core\Container->runScope() at vendor/spiral/framework/src/Boot/src/AbstractKernel.php:312
+52. Spiral\Boot\AbstractKernel->serve() at app.php:31
+
