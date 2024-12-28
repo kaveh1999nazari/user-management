@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package user_management;
+
+option php_namespace = "GRPC\\user_management";
+option php_metadata_namespace = "GRPC\\user_management\\GPBMetadata";
+
+
+service UserManagementGrpc {
+    rpc Create (CreateUserRequest) returns (CreateUserResponse);
+    rpc Update (UpdateUserRequest) returns (UpdateUserResponse);
+
+}
+
+message CreateUserRequest {
+    string first_name = 1;
+    string last_name = 2;
+    string mobile = 3;
+    string email = 4;
+    string password = 5;
+    string father_name = 6;
+    string national_code = 7;
+    string birth_date = 8;
+    string picture = 9;
+}
+
+message CreateUserResponse {
+    int32 id = 1;
+    string message = 2;
+}
+
+message UpdateUserRequest {
+    int32 user = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string mobile = 4;
+    string email = 5;
+    string password = 6;
+    string father_name = 7;
+    string national_code = 8;
+    string birth_date = 9;
+    string picture = 10;
+    string code = 11;
+}
+
+message UpdateUserResponse {
+    int32 id = 1;
+    string message = 2;
+}

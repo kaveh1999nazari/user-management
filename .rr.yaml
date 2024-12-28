@@ -1,0 +1,13 @@
+version: '3'
+rpc:
+    listen: 'tcp://127.0.0.1:6001'
+grpc:
+    listen: 'tcp://127.0.0.1:9003'
+    pool:
+      debug: true
+    proto:
+      - proto/user_management.proto
+
+server:
+    command: 'php app.php'
+    relay: pipes
