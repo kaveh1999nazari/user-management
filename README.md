@@ -23,7 +23,6 @@
                     <ul>
                         <li>with user personal information</li>
                     </ul>
-                <li>Add docker and manage by docker</li>
             </ul>
         </div>
     </div>
