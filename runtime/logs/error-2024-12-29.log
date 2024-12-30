@@ -1,0 +1,1 @@
+[2024-12-29T14:31:10.322288+00:00] ERROR: Cycle\Database\Exception\StatementException: SQLSTATE[HY000] [1049] Unknown database 'UserManagement' in /home/kaveh/PhpStorm/user-management/vendor/cycle/database/src/Driver/MySQL/MySQLDriver.php at line 89 []
