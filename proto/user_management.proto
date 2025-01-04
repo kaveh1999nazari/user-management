@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package user_management;
 
-option php_namespace = "GRPC\\user_management";
-option php_metadata_namespace = "GRPC\\user_management\\GPBMetadata";
+option php_namespace = "GRPC\\UserManagement";
+option php_metadata_namespace = "GRPC\\UserManagement\\GPBMetadata";
 
 
 service UserManagementGrpc {
