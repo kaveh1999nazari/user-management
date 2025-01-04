@@ -9,12 +9,10 @@ use App\Domain\Request\UserCreateRequest;
 use App\Domain\Request\UserUpdateRequest;
 use Cycle\ORM\ORMInterface;
 use Google\Rpc\Code;
-use GRPC\user_management\UserManagementGrpcInterface;
+use GRPC\UserManagement\CreateUserRequest;
+use GRPC\UserManagement\CreateUserResponse;
+use GRPC\UserManagement\UserManagementGrpcInterface;
 use Spiral\RoadRunner\GRPC;
-use GRPC\user_management\CreateUserRequest;
-use GRPC\user_management\CreateUserResponse;
-use GRPC\user_management\UpdateUserRequest;
-use GRPC\user_management\UpdateUserResponse;
 use Spiral\RoadRunner\GRPC\Exception\GRPCException;
 
 class UserManagementService implements UserManagementGrpcInterface
@@ -49,7 +47,7 @@ class UserManagementService implements UserManagementGrpcInterface
     }
 
     #[ValidateBy(UserUpdateRequest::class)]
-    public function Update(GRPC\ContextInterface $ctx, UpdateUserRequest $in): UpdateUserResponse
+    public function Update(GRPC\ContextInterface $ctx, \GRPC\UserManagement\UpdateUserRequest $in): \GRPC\UserManagement\UpdateUserResponse
     {
         $user = $this->ORM->getRepository(User::class)
             ->findByPK($in->getUser());
