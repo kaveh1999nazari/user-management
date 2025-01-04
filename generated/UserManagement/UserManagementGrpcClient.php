@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GRPC\user_management;
+namespace GRPC\UserManagement;
 
 use Spiral\Core\InterceptableCore;
 use Spiral\RoadRunner\GRPC\ContextInterface;
@@ -19,7 +19,7 @@ class UserManagementGrpcClient implements UserManagementGrpcInterface
         [$response, $status] = $this->core->callAction(UserManagementGrpcInterface::class, '/'.self::NAME.'/Create', [
             'in' => $in,
             'ctx' => $ctx,
-            'responseClass' => \GRPC\user_management\CreateUserResponse::class,
+            'responseClass' => \GRPC\UserManagement\CreateUserResponse::class,
         ]);
 
         return $response;
@@ -30,7 +30,7 @@ class UserManagementGrpcClient implements UserManagementGrpcInterface
         [$response, $status] = $this->core->callAction(UserManagementGrpcInterface::class, '/'.self::NAME.'/Update', [
             'in' => $in,
             'ctx' => $ctx,
-            'responseClass' => \GRPC\user_management\UpdateUserResponse::class,
+            'responseClass' => \GRPC\UserManagement\UpdateUserResponse::class,
         ]);
 
         return $response;

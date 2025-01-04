@@ -1,0 +1,2 @@
+[2024-12-30T10:26:34.209687+00:00] ERROR: Cycle\Database\Exception\StatementException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'Shop-Spiral.users' doesn't exist in /home/kaveh/PhpStorm/user-management/vendor/cycle/database/src/Driver/MySQL/MySQLDriver.php at line 89 []
+[2024-12-30T14:20:24.277699+00:00] ERROR: Spiral\Goridge\Exception\HeaderException: Unable to read frame header: Incorrect header size in /home/kaveh/PhpStorm/user-management/vendor/spiral/goridge/src/StreamRelay.php at line 80 []

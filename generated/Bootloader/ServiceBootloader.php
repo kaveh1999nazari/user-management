@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace GRPC\Bootloader;
 
 use GRPC\Config\GRPCServicesConfig;
-use GRPC\user_management\UserManagementGrpcClient;
-use GRPC\user_management\UserManagementGrpcInterface;
+use GRPC\UserManagement\UserManagementGrpcClient;
+use GRPC\UserManagement\UserManagementGrpcInterface;
 use Spiral\Boot\Bootloader\Bootloader;
 use Spiral\Boot\EnvironmentInterface;
 use Spiral\Config\ConfiguratorInterface;
