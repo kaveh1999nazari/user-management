@@ -67,9 +67,9 @@ class UserManagementService implements UserManagementGrpcInterface
 
         if ($in->getCode() === $user->getOtpCode() && $user->getOtpExpiredAt() > new \DateTimeImmutable()) {
             $this->ORM->getRepository(User::class)
-                ->update($user->getId(), $in->getFirstName(), $in->getLastName(),
-                    $in->getMobile(), $in->getEmail(), $password,
-                    $in->getFatherName(), $in->getNationalCode(), $birthDate);
+                ->update($user->getId(), $in->getFirstName() ?: null, $in->getLastName() ?: null,
+                    $in->getMobile() ?: null, $in->getEmail() ?: null, $password ?: null,
+                    $in->getFatherName() ?: null, $in->getNationalCode() ?: null, $birthDate ?: null);
 
             if ($in->getPicture()) {
                 $name = substr($in->getPicture(), 26);
@@ -78,14 +78,19 @@ class UserManagementService implements UserManagementGrpcInterface
                     $name,
                     $in->getPicture());
             }
+
+            $response = new UpdateUserResponse();
+            $response->setId($user->getId());
+            $response->setMessage("update account : {$user->getMobile()} successfully");
+
+            return $response;
+
+        } else {
+            throw new GRPCException(
+                message: "your code is invalid or expired!",
+                code: Code::UNAUTHENTICATED
+            );
         }
-
-        $response = new UpdateUserResponse();
-        $response->setId($user->getId());
-        $response->setMessage("update account : {$user->getMobile()} successfully");
-
-        return $response;
-
     }
 
     // ------ Methods -------
