@@ -11,6 +11,7 @@ use Cycle\ORM\ORMInterface;
 use Google\Rpc\Code;
 use GRPC\UserManagement\CreateUserRequest;
 use GRPC\UserManagement\CreateUserResponse;
+use GRPC\UserManagement\UpdateUserResponse;
 use GRPC\UserManagement\UserManagementGrpcInterface;
 use Spiral\RoadRunner\GRPC;
 use Spiral\RoadRunner\GRPC\Exception\GRPCException;
@@ -47,7 +48,7 @@ class UserManagementService implements UserManagementGrpcInterface
     }
 
     #[ValidateBy(UserUpdateRequest::class)]
-    public function Update(GRPC\ContextInterface $ctx, \GRPC\UserManagement\UpdateUserRequest $in): \GRPC\UserManagement\UpdateUserResponse
+    public function Update(GRPC\ContextInterface $ctx, \GRPC\UserManagement\UpdateUserRequest $in): UpdateUserResponse
     {
         $user = $this->ORM->getRepository(User::class)
             ->findByPK($in->getUser());
