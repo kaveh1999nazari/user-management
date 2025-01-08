@@ -16,7 +16,7 @@ class UserEducationRepository extends Repository
         parent::__construct($select);
     }
 
-    public function create(User $user, string $university, Degree $degree): UserEducation
+    public function create(User $user, ?string $university = null, ?Degree $degree = null): UserEducation
     {
         $userEducation = new UserEducation();
         $userEducation->setUser($user);
