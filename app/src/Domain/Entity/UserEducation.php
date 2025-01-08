@@ -15,9 +15,9 @@ class UserEducation
     #[BelongsTo(target: User::class)]
     private User $user;
     #[Column(type: "string")]
-    private string $university;
-    #[BelongsTo(target: Degree::class)]
-    private Degree $degree;
+    private ?string $university;
+    #[BelongsTo(target: Degree::class, nullable: true)]
+    private ?Degree $degree = null;
     #[Column(type: 'datetime')]
     private \DateTimeImmutable $createdAt;
     #[Column(type: 'datetime')]
@@ -38,22 +38,22 @@ class UserEducation
         $this->user = $user;
     }
 
-    public function getUniversity(): string
+    public function getUniversity(): ?string
     {
         return $this->university;
     }
 
-    public function setUniversity(string $university): void
+    public function setUniversity(?string $university): void
     {
         $this->university = $university;
     }
 
-    public function getDegree(): Degree
+    public function getDegree(): ?Degree
     {
         return $this->degree;
     }
 
-    public function setDegree(Degree $degree): void
+    public function setDegree(?Degree $degree): void
     {
         $this->degree = $degree;
     }
