@@ -32,8 +32,10 @@ class UserJobRepository extends Repository
         $userJob->setAddress($address);
         $userJob->setMonthlySalary($monthlySalary);
         $userJob->setWorkExperienceDuration($workExperienceDuration);
-        $userJob->setWorkType($workType);
-        $userJob->setContractType($contractType);
+        if ($workType && $contractType !== null) {
+            $userJob->setWorkType($workType);
+            $userJob->setContractType($contractType);
+        }
         $userJob->setCreatedAt(new \DateTimeImmutable());
         $userJob->setUpdatedAt(new \DateTimeImmutable());
 
