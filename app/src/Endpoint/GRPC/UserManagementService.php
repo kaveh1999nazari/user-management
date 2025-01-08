@@ -71,7 +71,8 @@ class UserManagementService implements UserManagementGrpcInterface
             : null;
 
         if(null === $city){
-            throw new GRPCException(message: 'this is city is not exist for this province');
+            throw new GRPCException(message: 'this is city is not exist for this province',
+                                    code: Code::NOT_FOUND);
         }
 
         $this->ORM->getRepository(UserResident::class)
