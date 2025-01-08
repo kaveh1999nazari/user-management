@@ -62,8 +62,17 @@ class UserManagementService implements UserManagementGrpcInterface
         $user = $this->ORM->getRepository(User::class)
             ->findByPK($in->getUser());
         $province = $in->getProvince() ? $this->ORM->getRepository(Province::class)->findByPK($in->getProvince()) : null;
-        $city = $in->getCity() ? $this->ORM->getRepository(City::class)->findByPK($in->getCity()) : null;
+        $city = ($in->getCity() && $in->getProvince())
+            ? $this->ORM->getRepository(City::class)
+                ->select()
+                ->where(['id' => $in->getCity()])
+                ->andWhere(['province_id' => $in->getProvince()])
+                ->fetchOne()
+            : null;
 
+        if(null === $city){
+            throw new GRPCException(message: 'this is city is not exist for this province');
+        }
 
         $this->ORM->getRepository(UserResident::class)
             ->create($user,
