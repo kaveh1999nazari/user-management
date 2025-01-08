@@ -15,7 +15,7 @@ class OrmDefaultA42b7e366d78543ca8c5a4b60d305055 extends Migration
             ->addColumn('id', 'primary', ['nullable' => false, 'size' => 11])
             ->addColumn('user_id', 'integer')
             ->addColumn('university', 'string', ['nullable' => true, 'size' => 200])
-            ->addColumn('degree_id', 'integer', ['nullable' => false, 'size' => 100])
+            ->addColumn('degree_id', 'integer', ['nullable' => true, 'size' => 100])
             ->addColumn('created_at', 'datetime', ['nullable' => true, 'default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated_at', 'datetime', ['nullable' => true, 'default' => 'CURRENT_TIMESTAMP'])
             ->addForeignKey(['user_id'], 'users', ['id'], ['onDelete' => 'CASCADE',
