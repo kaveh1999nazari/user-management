@@ -8,10 +8,15 @@ option php_metadata_namespace = "GRPC\\UserManagement\\GPBMetadata";
 
 service UserManagementGrpc {
     rpc Create (CreateUserRequest) returns (CreateUserResponse);
+    rpc CreateResident (CreateUserResidentRequest) returns (CreateUserResidentResponse);
+    rpc CreateEducation (CreateUserEducationRequest) returns (CreateUserEducationResponse);
+    rpc CreateJob (CreateUserJobRequest) returns (CreateUserJobResponse);
     rpc Update (UpdateUserRequest) returns (UpdateUserResponse);
-
 }
 
+/**
+ for creating user
+ */
 message CreateUserRequest {
     string first_name = 1;
     string last_name = 2;
@@ -29,6 +34,55 @@ message CreateUserResponse {
     string message = 2;
 }
 
+message CreateUserResidentRequest {
+    int32 user = 1;
+    string address = 2;
+    string postal_code = 3;
+    int32 province = 4;
+    int32 city = 5;
+    string postal_code_file = 6;
+}
+
+message CreateUserResidentResponse {
+    int32 id = 1;
+    string message = 2;
+}
+
+message CreateUserEducationRequest {
+    int32 user = 1;
+    string university = 2;
+    int32 degree = 3;
+    string education_file = 4;
+}
+
+message CreateUserEducationResponse {
+    int32 id = 1;
+    string message = 2;
+}
+
+message CreateUserJobRequest {
+    int32 user = 1;
+    int32 province = 2;
+    int32 city = 3;
+    string title = 4;
+    string phone = 5;
+    string postal_code = 6;
+    string address = 7;
+    float monthly_salary = 8;
+    int32 work_experience_duration = 9;
+    string work_type = 10;
+    string contract_type = 11;
+}
+
+message CreateUserJobResponse {
+    int32 id = 1;
+    string message = 2;
+}
+
+
+/**
+ for updating user
+ */
 message UpdateUserRequest {
     int32 user = 1;
     string first_name = 2;
