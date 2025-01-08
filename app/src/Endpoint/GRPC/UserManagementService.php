@@ -10,6 +10,7 @@ use App\Domain\Entity\Province;
 use App\Domain\Entity\User;
 use App\Domain\Entity\UserEducation;
 use App\Domain\Entity\UserResident;
+use App\Domain\Request\UserCreateEducationRequest;
 use App\Domain\Request\UserCreateRequest;
 use App\Domain\Request\UserCreateResidentRequest;
 use App\Domain\Request\UserUpdateRequest;
@@ -103,6 +104,7 @@ class UserManagementService implements UserManagementGrpcInterface
 
     }
 
+    #[ValidateBy(UserCreateEducationRequest::class)]
     public function CreateEducation(GRPC\ContextInterface $ctx, CreateUserEducationRequest $in): CreateUserEducationResponse
     {
         $user = $this->ORM->getRepository(User::class)
