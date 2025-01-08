@@ -9,14 +9,17 @@ use App\Domain\Entity\Media;
 use App\Domain\Entity\Province;
 use App\Domain\Entity\User;
 use App\Domain\Entity\UserEducation;
+use App\Domain\Entity\UserJob;
 use App\Domain\Entity\UserResident;
 use App\Domain\Request\UserCreateEducationRequest;
+use App\Domain\Request\UserCreateJobRequest;
 use App\Domain\Request\UserCreateRequest;
 use App\Domain\Request\UserCreateResidentRequest;
 use App\Domain\Request\UserUpdateRequest;
 use Cycle\ORM\ORMInterface;
 use Google\Rpc\Code;
 use GRPC\user\RegisterUserEducationResponse;
+use GRPC\user\RegisterUserJobResponse;
 use GRPC\user\RegisterUserResidentResponse;
 use GRPC\UserManagement\CreateUserEducationRequest;
 use GRPC\UserManagement\CreateUserEducationResponse;
@@ -130,10 +133,34 @@ class UserManagementService implements UserManagementGrpcInterface
         return $response;
     }
 
+    #[ValidateBy(UserCreateJobRequest::class)]
     public function CreateJob(GRPC\ContextInterface $ctx, CreateUserJobRequest $in): CreateUserJobResponse
     {
+        $user = $this->ORM->getRepository(User::class)
+            ->findByPK($in->getUser());
 
+        $province = $in->getProvince() ? $this->ORM->getRepository(Province::class)->findByPK($in->getProvince()) : null;
+
+        $city = ($in->getCity() && $in->getProvince())
+            ? $this->ORM->getRepository(City::class)
+                ->select()
+                ->where(['id' => $in->getCity()])
+                ->andWhere(['province_id' => $in->getProvince()])
+                ->fetchOne()
+            : null;
+
+        $this->ORM->getRepository(UserJob::class)
+            ->create($user, $province, $city, $in->getTitle(),
+                $in->getPhone(), $in->getPostalCode(), $in->getAddress(), $in->getMonthlySalary(),
+                $in->getWorkExperienceDuration(), $in->getWorkType(), $in->getContractType());
+
+        $response = new CreateUserJobResponse();
+        $response->setId($user->getId());
+        $response->setMessage("User Job account: {$user->getMobile()} successfully create");
+
+        return $response;
     }
+
     #[ValidateBy(UserUpdateRequest::class)]
     public function Update(GRPC\ContextInterface $ctx, \GRPC\UserManagement\UpdateUserRequest $in): UpdateUserResponse
     {
