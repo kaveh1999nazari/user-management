@@ -19,8 +19,8 @@ class UserResidentRepository extends Repository
         parent::__construct($select);
     }
 
-    public function create(User $user, string $address, string $postalCode,
-                           Province $province, City $city): UserResident
+    public function create(User $user, ?string $address = null, ?string $postalCode = null,
+                           ?Province $province = null, ?City $city = null): UserResident
     {
         $userResident = new UserResident();
         $userResident->setUser($user);
