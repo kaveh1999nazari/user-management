@@ -304,7 +304,7 @@
         2 => 
         array (
           30 => true,
-          31 => false,
+          31 => true,
           33 => 'degree_id',
           32 => 
           array (
