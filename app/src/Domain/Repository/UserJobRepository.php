@@ -17,9 +17,10 @@ class UserJobRepository extends Repository
         parent::__construct($select);
     }
 
-    public function create(User $user, Province $province, City $city, string $title, string $phone,
-                           string $postalCode, string $address, float $monthlySalary , int $workExperienceDuration,
-                           string $workType, string $contractType): UserJob
+    public function create(User $user, ?Province $province = null, ?City $city = null,
+                           ?string $title = null, ?string $phone = null, ?string $postalCode = null,
+                           ?string $address = null, ?float $monthlySalary = null , ?int $workExperienceDuration = null,
+                           ?string $workType = null, ?string $contractType = null): UserJob
     {
         $userJob = new UserJob();
         $userJob->setUser($user);
