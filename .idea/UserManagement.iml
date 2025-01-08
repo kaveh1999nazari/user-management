@@ -158,6 +158,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/friendly-exception" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/injector" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/butschster/entity-faker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-hydrator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-stdlib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spiral-packages/database-seeder" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
