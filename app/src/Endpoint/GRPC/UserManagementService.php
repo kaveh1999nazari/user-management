@@ -3,13 +3,23 @@
 namespace App\Endpoint\GRPC;
 
 use App\Domain\Attribute\ValidateBy;
+use App\Domain\Entity\City;
 use App\Domain\Entity\Media;
+use App\Domain\Entity\Province;
 use App\Domain\Entity\User;
+use App\Domain\Entity\UserResident;
 use App\Domain\Request\UserCreateRequest;
 use App\Domain\Request\UserUpdateRequest;
 use Cycle\ORM\ORMInterface;
 use Google\Rpc\Code;
+use GRPC\user\RegisterUserResidentResponse;
+use GRPC\UserManagement\CreateUserEducationRequest;
+use GRPC\UserManagement\CreateUserEducationResponse;
+use GRPC\UserManagement\CreateUserJobRequest;
+use GRPC\UserManagement\CreateUserJobResponse;
 use GRPC\UserManagement\CreateUserRequest;
+use GRPC\UserManagement\CreateUserResidentRequest;
+use GRPC\UserManagement\CreateUserResidentResponse;
 use GRPC\UserManagement\CreateUserResponse;
 use GRPC\UserManagement\UpdateUserResponse;
 use GRPC\UserManagement\UserManagementGrpcInterface;
@@ -47,6 +57,46 @@ class UserManagementService implements UserManagementGrpcInterface
         return $response;
     }
 
+    public function CreateResident(GRPC\ContextInterface $ctx, CreateUserResidentRequest $in): CreateUserResidentResponse
+    {
+        $user = $this->ORM->getRepository(User::class)
+            ->findByPK($in->getUser());
+        $province = $in->getProvince() ? $this->ORM->getRepository(Province::class)->findByPK($in->getProvince()) : null;
+        $city = $in->getCity() ? $this->ORM->getRepository(City::class)->findByPK($in->getCity()) : null;
+
+
+        $this->ORM->getRepository(UserResident::class)
+            ->create($user,
+                $in->getAddress(),
+                $in->getPostalCode(),
+                $province,
+                $city);
+
+        if ($in->getPostalCodeFile()) {
+            $name = substr($in->getPostalCodeFile(), 26);
+            $this->uploadMedia('userResident',
+                $user->getId(),
+                $name,
+                $in->getPostalCodeFile());
+        }
+
+        $response = new CreateUserResidentResponse();
+        $response->setId($user->getId());
+        $response->setMessage("User Resident account: {$user->getMobile()} successfully create");
+
+        return $response;
+
+    }
+
+    public function CreateEducation(GRPC\ContextInterface $ctx, CreateUserEducationRequest $in): CreateUserEducationResponse
+    {
+
+    }
+
+    public function CreateJob(GRPC\ContextInterface $ctx, CreateUserJobRequest $in): CreateUserJobResponse
+    {
+
+    }
     #[ValidateBy(UserUpdateRequest::class)]
     public function Update(GRPC\ContextInterface $ctx, \GRPC\UserManagement\UpdateUserRequest $in): UpdateUserResponse
     {
