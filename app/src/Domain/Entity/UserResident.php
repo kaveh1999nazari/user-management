@@ -14,19 +14,19 @@ class UserResident
     private int $id;
 
     #[BelongsTo(target: User::class, fkAction: 'CASCADE')]
-    private User $user;
+    private ?User $user;
 
-    #[Column(type: 'string', length: 200, nullable: false)]
-    private string $address;
+    #[Column(type: 'string', length: 200)]
+    private ?string $address;
 
-    #[Column(type: 'string', length: 10, nullable: false)]
-    private string $postalCode;
+    #[Column(type: 'string', length: 10)]
+    private ?string $postalCode;
 
-    #[BelongsTo(target: Province::class, fkAction: 'CASCADE')]
-    private Province $province;
+    #[BelongsTo(target: Province::class, nullable: true, fkAction: 'CASCADE')]
+    private ?Province $province = null;
 
-    #[BelongsTo(target: City::class, fkAction: 'CASCADE')]
-    private City $city;
+    #[BelongsTo(target: City::class, nullable: true, fkAction: 'CASCADE')]
+    private ?City $city = null;
 
     #[Column(type: 'datetime', nullable: true, defaultValue: 'CURRENT_TIMESTAMP')]
     private \DateTimeImmutable $createdAt;
@@ -40,52 +40,52 @@ class UserResident
         return $this->id;
     }
 
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(User $user): void
+    public function setUser(?User $user): void
     {
         $this->user = $user;
     }
 
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    public function setAddress(string $address): void
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
 
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
 
-    public function setPostalCode(string $postalCode): void
+    public function setPostalCode(?string $postalCode): void
     {
         $this->postalCode = $postalCode;
     }
 
-    public function getProvince(): Province
+    public function getProvince(): ?Province
     {
         return $this->province;
     }
 
-    public function setProvince(Province $province): void
+    public function setProvince(?Province $province): void
     {
         $this->province = $province;
     }
 
-    public function getCity(): City
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
-    public function setCity(City $city): void
+    public function setCity(?City $city): void
     {
         $this->city = $city;
     }
