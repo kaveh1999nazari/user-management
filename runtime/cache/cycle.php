@@ -97,7 +97,7 @@
         2 => 
         array (
           30 => true,
-          31 => false,
+          31 => true,
           33 => 'province_id',
           32 => 
           array (
@@ -113,7 +113,7 @@
         2 => 
         array (
           30 => true,
-          31 => false,
+          31 => true,
           33 => 'city_id',
           32 => 
           array (
