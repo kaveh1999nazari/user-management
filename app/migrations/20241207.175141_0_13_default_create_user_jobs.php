@@ -24,11 +24,13 @@ class OrmDefaultUserJobsMigration extends Migration
             ->addColumn('work_experience_duration', 'integer', ['nullable' => true])
             ->addColumn('work_type', 'enum', [
                 'nullable' => true,
-                'values' => ['government', 'private', 'freelancer', 'student', 'other']
+                'values' => ['government', 'private', 'freelancer', 'student', 'other'],
+                'default' => 'null'
             ])
             ->addColumn('contract_type', 'enum', [
                 'nullable' => true,
-                'values' => ['owner', 'project', 'part_time', 'full_time', 'other']
+                'values' => ['owner', 'project', 'part_time', 'full_time', 'other'],
+                'default' => 'null'
             ])
             ->addColumn('created_at', 'datetime', ['nullable' => true, 'default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated_at', 'datetime', ['nullable' => true, 'default' => 'CURRENT_TIMESTAMP'])
