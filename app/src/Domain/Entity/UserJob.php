@@ -15,26 +15,26 @@ class UserJob
     private int $id;
     #[BelongsTo(target: User::class)]
     private User $user;
-    #[BelongsTo(target: Province::class)]
-    private Province $province;
-    #[BelongsTo(target: City::class)]
-    private City $city;
+    #[BelongsTo(target: Province::class, nullable: true)]
+    private ?Province $province = null;
+    #[BelongsTo(target: City::class, nullable: true)]
+    private ?City $city = null;
     #[Column(type: "string")]
-    private string $title;
+    private ?string $title;
     #[Column(type: "string")]
-    private string $phone;
+    private ?string $phone;
     #[Column(type: "string")]
-    private string $postalCode;
+    private ?string $postalCode;
     #[Column(type: "string")]
-    private string $address;
+    private ?string $address;
     #[Column(type: "float")]
-    private float $monthlySalary;
+    private ?float $monthlySalary;
     #[Column(type: "integer")]
-    private int $workExperienceDuration;
-    #[Column(type: "string")]
-    private string $workType;
-    #[Column(type: "string")]
-    private string $contractType;
+    private ?int $workExperienceDuration;
+    #[Column(type: "string", default: 'other')]
+    private ?string $workType;
+    #[Column(type: "string", default: 'other')]
+    private ?string $contractType;
     #[Column(type: "datetime")]
     private \DateTimeImmutable $createdAt;
     #[Column(type: "datetime")]
@@ -55,102 +55,102 @@ class UserJob
         $this->user = $user;
     }
 
-    public function getProvince(): Province
+    public function getProvince(): ?Province
     {
         return $this->province;
     }
 
-    public function setProvince(Province $province): void
+    public function setProvince(?Province $province): void
     {
         $this->province = $province;
     }
 
-    public function getCity(): City
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
-    public function setCity(City $city): void
+    public function setCity(?City $city): void
     {
         $this->city = $city;
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(string $title): void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(string $phone): void
+    public function setPhone(?string $phone): void
     {
         $this->phone = $phone;
     }
 
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
 
-    public function setPostalCode(string $postalCode): void
+    public function setPostalCode(?string $postalCode): void
     {
         $this->postalCode = $postalCode;
     }
 
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    public function setAddress(string $address): void
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
 
-    public function getMonthlySalary(): float
+    public function getMonthlySalary(): ?float
     {
         return $this->monthlySalary;
     }
 
-    public function setMonthlySalary(float $monthlySalary): void
+    public function setMonthlySalary(?float $monthlySalary): void
     {
         $this->monthlySalary = $monthlySalary;
     }
 
-    public function getWorkExperienceDuration(): int
+    public function getWorkExperienceDuration(): ?int
     {
         return $this->workExperienceDuration;
     }
 
-    public function setWorkExperienceDuration(int $workExperienceDuration): void
+    public function setWorkExperienceDuration(?int $workExperienceDuration): void
     {
         $this->workExperienceDuration = $workExperienceDuration;
     }
 
-    public function getWorkType(): string
+    public function getWorkType(): ?string
     {
         return $this->workType;
     }
 
-    public function setWorkType(string $workType): void
+    public function setWorkType(?string $workType): void
     {
         $this->workType = $workType;
     }
 
-    public function getContractType(): string
+    public function getContractType(): ?string
     {
         return $this->contractType;
     }
 
-    public function setContractType(string $contractType): void
+    public function setContractType(?string $contractType): void
     {
         $this->contractType = $contractType;
     }
