@@ -31,9 +31,9 @@ class UserJob
     private ?float $monthlySalary;
     #[Column(type: "integer")]
     private ?int $workExperienceDuration;
-    #[Column(type: "string", default: 'other')]
+    #[Column(type: "string", nullable: true)]
     private ?string $workType;
-    #[Column(type: "string", default: 'other')]
+    #[Column(type: "string", nullable: true)]
     private ?string $contractType;
     #[Column(type: "datetime")]
     private \DateTimeImmutable $createdAt;
