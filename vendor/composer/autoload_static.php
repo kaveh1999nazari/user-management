@@ -18,9 +18,9 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
+        'ee3f63fba4aee765c47ba535aa9e0804' => __DIR__ . '/..' . '/spiral/attributes/src/polyfill.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
-        'ee3f63fba4aee765c47ba535aa9e0804' => __DIR__ . '/..' . '/spiral/attributes/src/polyfill.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
@@ -145,6 +145,7 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
             'Spiral\\DotEnv\\' => 14,
             'Spiral\\Distribution\\' => 20,
             'Spiral\\Debug\\' => 13,
+            'Spiral\\DatabaseSeeder\\' => 22,
             'Spiral\\DataGrid\\' => 16,
             'Spiral\\Cycle\\' => 13,
             'Spiral\\Csrf\\' => 12,
@@ -200,6 +201,8 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
             'League\\Flysystem\\Local\\' => 23,
             'League\\Flysystem\\' => 17,
             'LanguageServerProtocol\\' => 23,
+            'Laminas\\Stdlib\\' => 15,
+            'Laminas\\Hydrator\\' => 17,
         ),
         'I' => 
         array (
@@ -237,6 +240,7 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
         'F' => 
         array (
             'Fidry\\CpuCoreCounter\\' => 21,
+            'Faker\\' => 6,
         ),
         'E' => 
         array (
@@ -272,6 +276,8 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
         ),
         'B' => 
         array (
+            'Butschster\\Tests\\' => 17,
+            'Butschster\\EntityFaker\\' => 23,
             'Buggregator\\Trap\\' => 17,
             'Brick\\Math\\' => 11,
         ),
@@ -610,6 +616,10 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
             0 => __DIR__ . '/..' . '/spiral/dumper/src',
             1 => __DIR__ . '/..' . '/spiral/framework/src/Debug/src',
         ),
+        'Spiral\\DatabaseSeeder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spiral-packages/database-seeder/src',
+        ),
         'Spiral\\DataGrid\\' => 
         array (
             0 => __DIR__ . '/..' . '/spiral/data-grid/src',
@@ -775,6 +785,14 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
         array (
             0 => __DIR__ . '/..' . '/felixfbecker/language-server-protocol/src',
         ),
+        'Laminas\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-stdlib/src',
+        ),
+        'Laminas\\Hydrator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-hydrator/src',
+        ),
         'Illuminate\\Validation\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/validation',
@@ -878,6 +896,10 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
         array (
             0 => __DIR__ . '/..' . '/fidry/cpu-core-counter/src',
         ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
@@ -969,6 +991,14 @@ class ComposerStaticInit06ead3186c1b420cf55aaad1e4162577
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'Butschster\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/butschster/entity-faker/tests',
+        ),
+        'Butschster\\EntityFaker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/butschster/entity-faker/src',
         ),
         'Buggregator\\Trap\\' => 
         array (

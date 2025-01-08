@@ -3,7 +3,7 @@
         'name' => 'spiral/app',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'eafe4b6ba9b5eb665061a492649705fc44472685',
+        'reference' => 'ec0d537c14732c9bf20fd031108199cfbe19751d',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -45,6 +45,15 @@
             'install_path' => __DIR__ . '/../buggregator/trap',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'butschster/entity-faker' => array(
+            'pretty_version' => 'v2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => '64349ff1e9d7f96aacc99781ea18db163ee366ab',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../butschster/entity-faker',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'carbonphp/carbon-doctrine-types' => array(
             'pretty_version' => '3.2.0',
@@ -247,6 +256,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'fakerphp/faker' => array(
+            'pretty_version' => 'v1.24.1',
+            'version' => '1.24.1.0',
+            'reference' => 'e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fakerphp/faker',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'felixfbecker/advanced-json-rpc' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
@@ -405,6 +423,24 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'laminas/laminas-hydrator' => array(
+            'pretty_version' => '4.16.0',
+            'version' => '4.16.0.0',
+            'reference' => 'a162bd571924968d67ef1f43aed044b8f9c108ef',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-hydrator',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'laminas/laminas-stdlib' => array(
+            'pretty_version' => '3.20.0',
+            'version' => '3.20.0.0',
+            'reference' => '8974a1213be42c3e2f70b2c27b17f910291ab2f4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-stdlib',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'league/flysystem' => array(
             'pretty_version' => '3.29.1',
@@ -802,8 +838,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1019,6 +1055,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'spiral-packages/database-seeder' => array(
+            'pretty_version' => '3.3.0',
+            'version' => '3.3.0.0',
+            'reference' => 'c15c6254f19ef237c4500a7867604f9fe4300e6c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spiral-packages/database-seeder',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'spiral-packages/laravel-validator' => array(
             'pretty_version' => '1.1.0',
             'version' => '1.1.0.0',
@@ -1037,7 +1082,7 @@
         'spiral/app' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'eafe4b6ba9b5eb665061a492649705fc44472685',
+            'reference' => 'ec0d537c14732c9bf20fd031108199cfbe19751d',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1788,7 +1833,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../webmozart/assert',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'yiisoft/friendly-exception' => array(
             'pretty_version' => '1.1.0',

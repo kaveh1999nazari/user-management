@@ -86,6 +86,9 @@ class Kernel extends \Spiral\Framework\Kernel
             \Spiral\Validation\Bootloader\ValidationBootloader::class,
             \Spiral\Validator\Bootloader\ValidatorBootloader::class,
 
+            // Seeder
+            \Spiral\DatabaseSeeder\Bootloader\DatabaseSeederBootloader::class,
+
         ];
     }
 }

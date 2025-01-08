@@ -14,6 +14,7 @@
         "ext-mbstring": "*",
         "ext-sockets": "*",
         "grpc/grpc": "^1.42",
+        "spiral-packages/database-seeder": "^3.3",
         "spiral-packages/laravel-validator": "^1.1",
         "spiral/cycle-bridge": "^2.5",
         "spiral/framework": "^3.8",
