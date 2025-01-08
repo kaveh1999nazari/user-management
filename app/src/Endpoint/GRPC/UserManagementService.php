@@ -4,14 +4,18 @@ namespace App\Endpoint\GRPC;
 
 use App\Domain\Attribute\ValidateBy;
 use App\Domain\Entity\City;
+use App\Domain\Entity\Degree;
 use App\Domain\Entity\Media;
 use App\Domain\Entity\Province;
 use App\Domain\Entity\User;
+use App\Domain\Entity\UserEducation;
 use App\Domain\Entity\UserResident;
 use App\Domain\Request\UserCreateRequest;
+use App\Domain\Request\UserCreateResidentRequest;
 use App\Domain\Request\UserUpdateRequest;
 use Cycle\ORM\ORMInterface;
 use Google\Rpc\Code;
+use GRPC\user\RegisterUserEducationResponse;
 use GRPC\user\RegisterUserResidentResponse;
 use GRPC\UserManagement\CreateUserEducationRequest;
 use GRPC\UserManagement\CreateUserEducationResponse;
@@ -57,6 +61,7 @@ class UserManagementService implements UserManagementGrpcInterface
         return $response;
     }
 
+    #[ValidateBy(UserCreateResidentRequest::class)]
     public function CreateResident(GRPC\ContextInterface $ctx, CreateUserResidentRequest $in): CreateUserResidentResponse
     {
         $user = $this->ORM->getRepository(User::class)
@@ -100,7 +105,27 @@ class UserManagementService implements UserManagementGrpcInterface
 
     public function CreateEducation(GRPC\ContextInterface $ctx, CreateUserEducationRequest $in): CreateUserEducationResponse
     {
+        $user = $this->ORM->getRepository(User::class)
+            ->findByPK($in->getUser());
+        $degree = $this->ORM->getRepository(Degree::class)
+            ->findByPK($in->getDegree());
 
+        $this->ORM->getRepository(UserEducation::class)
+            ->create($user, $in->getUniversity(), $degree);
+
+        if ($in->getEducationFile()) {
+            $name = substr($in->getEducationFile(), 26);
+            $this->uploadMedia('userEducation',
+                $user->getId(),
+                $name,
+                $in->getEducationFile());
+        }
+
+        $response = new CreateUserEducationResponse();
+        $response->setId($user->getId());
+        $response->setMessage("User Education account: {$user->getMobile()} successfully create");
+
+        return $response;
     }
 
     public function CreateJob(GRPC\ContextInterface $ctx, CreateUserJobRequest $in): CreateUserJobResponse
